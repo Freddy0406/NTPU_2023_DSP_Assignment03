@@ -3,12 +3,12 @@ INCLUDE = -I.
 all: build
 
 build:
-	gcc -O3 -o 123.exe 123.c function.c $(INCLUDE) -lm
+	gcc -O3 -o main.exe main.c function.c gen_wav.c $(INCLUDE) -lm
 
 test:
-	./123.exe
+	./main.exe
 
 clean:
-	rm -f  123.exe
+	rm -f  *.txt
 
 .PHONY: build test clean
