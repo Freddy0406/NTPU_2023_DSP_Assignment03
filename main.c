@@ -1,37 +1,9 @@
 # include "function.h"
 
-
-/*Generate Sine*/
-void gen_sinusoid(int N,double freq,char txt[]){
-    double *sin_array = (double*)malloc(sizeof(double)*N);
-
-    for(int a = 0;a<N;a++){                                             //Create cos and sin data (Represent x[n] = e^(j*omega*n/N) in euler's form)
-        sin_array[a] = sin(2*PI*freq*(double)a/N);
-    }
-    
-        FILE *txtfp;                                                        //Open a txt file
-    txtfp=fopen(txt,"wb");
-    if(txtfp==NULL){
-        printf( "open failure" );
-    }
-    else{
-
-        for(int a = 0; a < N; a++){
-            fprintf(txtfp,"%lf\n",sin_array[a]);     //write into txt
-            fflush(txtfp);                                   //clear cache
-        }
-
-        free(sin_array);                               
-        fclose(txtfp);                                       //close txt file
-        fflush(txtfp);
-    }
-}
-
-
-
 /*Main function*/
 int main(int argc, char **argv)
 {   
+    int i =0;
     /*Create h array to save coeficient*/
     float h_M_1[2*1+1];
     float h_M_4[2*4+1];
@@ -52,14 +24,21 @@ int main(int argc, char **argv)
     gen_lowpass(fopen("M_1024_LPF.txt","w+"),1024,h_M_1024);
     gen_lowpass(fopen("M_2048_LPF.txt","w+"),2048,h_M_2048);
 
+    generateWav(fopen("test.wav","wb"),44100,16,440,10000,1);                   //test
 
-
-    generateWav(fopen("cos_3500Hz-16k.wav","wb"),FS,16,3500,10000,1);
+    /*Generate test wav*/
+    int T = 5;          //wav長度:單位秒
+    short *sinedata_3500 = (short*)malloc(sizeof(short)*(FS*T));				//生成儲存指定cos波的動態陣列
+    short *sinedata_5000 = (short*)malloc(sizeof(short)*(FS*T));				//生成儲存指定cos波的動態陣列
+    generateSin(FS,3500,T,sinedata_3500);
+    generateSin(FS,5000,T,sinedata_5000);
+    
     
 
 
-                     
 
 
+    free(sinedata_3500);
+    free(sinedata_5000);
 }
 

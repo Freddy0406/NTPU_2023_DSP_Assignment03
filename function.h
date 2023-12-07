@@ -43,6 +43,7 @@ typedef struct				//定義複數結構,通過歐拉公式運算
 void gen_lowpass(FILE *fp, int M, float *h);
 
 void generateWav(FILE *fp,int fs,int m ,int f,double A,double T);
+void generateSin(int fs,int f,double T, short *sinedata);
 
 
 

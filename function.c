@@ -20,6 +20,16 @@ float low_pass(int m, int n)
 	}
 }
 
+void generateSin(int fs,int f,double T, short *sinedata){
+
+    int sampTimes = fs * T;                    // 取樣次數 = 取樣頻率(次數/時間) * 時間
+    int i = 0;
+
+    for(i = 0; i < sampTimes; i++){                                              //生成sin波
+        sinedata[i] = roundf(10000 * sin(2 * PI * f * (float)i / fs));
+    }
+}
+
 
 /*Generate low-pass filter after DTFT*/
 void gen_lowpass(FILE *fp, int M, float *h)
