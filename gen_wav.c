@@ -15,8 +15,7 @@ void generateWav(FILE *fp,int fs,int m ,int f,double A,double T){
 		int dataSize = sampTimes * 2 * (m / 8);    // 音檔大小 = 取樣次數 * 聲道數 * 每次取樣次數大小(Bytes)
 		int i = 0;
 
-		short  *sinedata = (short*)malloc(sizeof(short)*sampTimes);				//生成儲存指定cos波的動態陣列
-		short  *cosinedata = (short*)malloc(sizeof(short)*sampTimes);  			//生成儲存指定cos波的動態陣列                  
+		short  *sinedata = (short*)malloc(sizeof(short)*sampTimes);				//生成儲存指定sin波的動態陣列                 
 		
 		struct WaveHeader WavInf;              //生成空的wav標頭檔以便寫入
 
@@ -64,7 +63,6 @@ void generateWav(FILE *fp,int fs,int m ,int f,double A,double T){
 		}
 		//free malloc
 		free(sinedata);
-		free(cosinedata);
 		fclose(fp);
 		fflush(fp);
     }

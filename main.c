@@ -32,8 +32,19 @@ int main(int argc, char **argv)
     short *sinedata_5000 = (short*)malloc(sizeof(short)*(FS*T));				//生成儲存指定cos波的動態陣列
     generateSin(FS,3500,T,sinedata_3500);
     generateSin(FS,5000,T,sinedata_5000);
+
+    short *data_3500_1 = (short*)malloc(sizeof(short)*(FS*T));
+    short *data_3500_4 = (short*)malloc(sizeof(short)*(FS*T));
+    short *data_3500_16 = (short*)malloc(sizeof(short)*(FS*T));
+    short *data_3500_64 = (short*)malloc(sizeof(short)*(FS*T));
+    short *data_3500_256 = (short*)malloc(sizeof(short)*(FS*T));
+    short *data_3500_512 = (short*)malloc(sizeof(short)*(FS*T));
+    short *data_3500_1024 = (short*)malloc(sizeof(short)*(FS*T));
+    short *data_3500_2048 = (short*)malloc(sizeof(short)*(FS*T));
+
     
     
+
 
 
 

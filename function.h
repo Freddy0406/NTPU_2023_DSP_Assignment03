@@ -27,23 +27,17 @@ struct WaveHeader
 	int32_t  DATALen;               //語音資料的大小
 };
 
-
-float hamming(int N, int n);
-
-
-/* low-pass filter coef: n=0,1,2...,2M */
-float low_pass(int m, int n);
-
 typedef struct				//定義複數結構,通過歐拉公式運算
 {
 	double real,imag;   
 }complex;
 
-
+float hamming(int N, int n);
+float low_pass(int m, int n);
 void gen_lowpass(FILE *fp, int M, float *h);
-
 void generateWav(FILE *fp,int fs,int m ,int f,double A,double T);
 void generateSin(int fs,int f,double T, short *sinedata);
+void through_LPF(short *sindata, float h);
 
 
 
