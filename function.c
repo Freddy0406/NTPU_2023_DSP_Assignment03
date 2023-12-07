@@ -1,4 +1,6 @@
 # include "function.h"
+
+
 /* hamming: for n=0,1,2,...N, length of N+1 */
 float hamming(int N, int n)
 {
