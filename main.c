@@ -4,6 +4,8 @@
 int main(int argc, char **argv)
 {   
     int i =0;
+    int T = 5;          //wav長度:單位秒
+    int sinedata_length = FS*T;
     /*Create h array to save coeficient*/
     float h_M_1[2*1+1];
     float h_M_4[2*4+1];
@@ -24,32 +26,43 @@ int main(int argc, char **argv)
     gen_lowpass(fopen("M_1024_LPF.txt","w+"),1024,h_M_1024);
     gen_lowpass(fopen("M_2048_LPF.txt","w+"),2048,h_M_2048);
 
-    generateWav(fopen("test.wav","wb"),44100,16,440,10000,1);                   //test
-
     /*Generate test wav*/
-    int T = 5;          //wav長度:單位秒
-    short *sinedata_3500 = (short*)malloc(sizeof(short)*(FS*T));				//生成儲存指定cos波的動態陣列
-    short *sinedata_5000 = (short*)malloc(sizeof(short)*(FS*T));				//生成儲存指定cos波的動態陣列
+    short *sinedata_3500 = (short*)malloc(sizeof(short)*sinedata_length);				//生成儲存指定cos波的動態陣列
+    short *sinedata_5000 = (short*)malloc(sizeof(short)*sinedata_length);				//生成儲存指定cos波的動態陣列
     generateSin(FS,3500,T,sinedata_3500);
     generateSin(FS,5000,T,sinedata_5000);
 
-    short *data_3500_1 = (short*)malloc(sizeof(short)*(FS*T));
-    short *data_3500_4 = (short*)malloc(sizeof(short)*(FS*T));
-    short *data_3500_16 = (short*)malloc(sizeof(short)*(FS*T));
-    short *data_3500_64 = (short*)malloc(sizeof(short)*(FS*T));
-    short *data_3500_256 = (short*)malloc(sizeof(short)*(FS*T));
-    short *data_3500_512 = (short*)malloc(sizeof(short)*(FS*T));
-    short *data_3500_1024 = (short*)malloc(sizeof(short)*(FS*T));
-    short *data_3500_2048 = (short*)malloc(sizeof(short)*(FS*T));
+
+    /**/
+    short *data_3500 = (short*)malloc(sizeof(short)*sinedata_length);
+    short *data_5000 = (short*)malloc(sizeof(short)*sinedata_length);
+
+    through_LPF(sinedata_3500, h_M_1, data_3500, sinedata_length, 1);           //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
+    generateWav(fopen("sin3500Hz_M1.wav","wb"),FS,16,T,data_3500);              //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
+
+    through_LPF(sinedata_3500, h_M_4, data_3500, sinedata_length, 4);           //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
+    generateWav(fopen("sin3500Hz_M4.wav","wb"),FS,16,T,data_3500);              //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
+
+    through_LPF(sinedata_3500, h_M_2048, data_3500, sinedata_length, 2048);     //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
+    generateWav(fopen("sin3500Hz_M2048.wav","wb"),FS,16,T,data_3500);           //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
+
+    through_LPF(sinedata_5000, h_M_1, data_5000, sinedata_length, 1);           //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
+    generateWav(fopen("sin5000Hz_M1.wav","wb"),FS,16,T,data_5000);              //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
+
+    through_LPF(sinedata_5000, h_M_16, data_5000, sinedata_length, 16);         //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
+    generateWav(fopen("sin5000Hz_M16.wav","wb"),FS,16,T,data_5000);             //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
+
+    through_LPF(sinedata_5000, h_M_64, data_5000, sinedata_length, 64);         //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
+    generateWav(fopen("sin5000Hz_M64.wav","wb"),FS,16,T,data_5000);             //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
 
     
-    
-
 
 
 
 
     free(sinedata_3500);
     free(sinedata_5000);
+    free(data_3500);
+    free(data_5000);
 }
 

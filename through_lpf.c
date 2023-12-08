@@ -1,13 +1,7 @@
 # include "function.h"
 
+void through_LPF(short *sindata, float *h, short *data, int data_length, int M){
 
-
-
-void through_LPF(short *sindata, float h, short *data){
-
-
-    int data_length = sizeof(sindata)/sizeof(short);
-    
     int n = 0;
     int k = 0;
     int y = 0;
@@ -15,10 +9,8 @@ void through_LPF(short *sindata, float h, short *data){
 		y = 0;
 		for(k=0;k<(2*M+1);k++) {
 			if( (n-k)>=0 )
-		 		y = y + h_L[k] * ((float)(wavin.LChannel[n-k]));
+		 		y = y + h[k] * ((float)(sindata[n-k]));
 		}
-		wavout.LChannel[n] = (short)(roundf(y));
-		Y_L[n] = wavout.LChannel[n];								//將quantize之後的資訊存入Y_L
-
+		data[n] = (short)(roundf(y));					//將quantize之後的資訊存入data
+	}
 }
-

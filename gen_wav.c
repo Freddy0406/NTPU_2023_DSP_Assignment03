@@ -1,7 +1,7 @@
 # include "function.h"
 
 
-void generateWav(FILE *fp,int fs,int m ,int f,double A,double T){
+void generateWav(FILE *fp,int fs,int m ,double T,short *data){
 
 	if( NULL == fp ){
 
@@ -10,12 +10,10 @@ void generateWav(FILE *fp,int fs,int m ,int f,double A,double T){
     }
 	else{
 
-
+		
 		int sampTimes = fs * T;                    // 取樣次數 = 取樣頻率(次數/時間) * 時間
 		int dataSize = sampTimes * 2 * (m / 8);    // 音檔大小 = 取樣次數 * 聲道數 * 每次取樣次數大小(Bytes)
-		int i = 0;
-
-		short  *sinedata = (short*)malloc(sizeof(short)*sampTimes);				//生成儲存指定sin波的動態陣列                 
+		int i = 0;             
 		
 		struct WaveHeader WavInf;              //生成空的wav標頭檔以便寫入
 
@@ -54,15 +52,12 @@ void generateWav(FILE *fp,int fs,int m ,int f,double A,double T){
 		fwrite(&WavInf,sizeof(WavInf),1,fp);                                         //寫入標頭檔
 
 		for(i = 0; i < sampTimes; i++){                                              //生成sin波
-			sinedata[i] = round(A * sin(2 * PI * f * (float)i / fs));
-			fwrite(&sinedata[i],sizeof(short),1,fp);			
+			fwrite(&data[i],sizeof(short),1,fp);			
 			fflush(fp);
-			sinedata[i] = round(A * sin(2 * PI * f * (float)i / fs));
-			fwrite(&sinedata[i],sizeof(short),1,fp);			
+			fwrite(&data[i],sizeof(short),1,fp);			
 			fflush(fp);
 		}
 		//free malloc
-		free(sinedata);
 		fclose(fp);
 		fflush(fp);
     }
