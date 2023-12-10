@@ -38,71 +38,71 @@ int main(int argc, char **argv)
     short *data_5000 = (short*)malloc(sizeof(short)*sinedata_length);
 
 
-    // through_LPF(sinedata_3500, h_M_1, data_3500, sinedata_length, 1);           //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
-    // generateWav(fopen("sin3500Hz_M1.wav","wb"),FS,16,T,data_3500);              //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
-    // result_txt(fopen("sin3500Hz_M1.txt","w+"),data_3500,sinedata_length);
+    through_LPF(sinedata_3500, h_M_1, data_3500, sinedata_length, 1);           //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
+    generateWav(fopen("sin3500Hz_M1.wav","wb"),FS,16,T,data_3500);              //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
+    result_txt(fopen("sin3500Hz_M1.txt","w+"),data_3500,sinedata_length);
 
-    // through_LPF(sinedata_3500, h_M_4, data_3500, sinedata_length, 4);           //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
-    // generateWav(fopen("sin3500Hz_M4.wav","wb"),FS,16,T,data_3500);              //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
-    // result_txt(fopen("sin3500Hz_M4.txt","w+"),data_3500,sinedata_length);
+    through_LPF(sinedata_3500, h_M_4, data_3500, sinedata_length, 4);           //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
+    generateWav(fopen("sin3500Hz_M4.wav","wb"),FS,16,T,data_3500);              //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
+    result_txt(fopen("sin3500Hz_M4.txt","w+"),data_3500,sinedata_length);
 
-    // through_LPF(sinedata_3500, h_M_16, data_3500, sinedata_length, 16);           //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
-    // generateWav(fopen("sin3500Hz_M16.wav","wb"),FS,16,T,data_3500);              //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
-    // result_txt(fopen("sin3500Hz_M16.txt","w+"),data_3500,sinedata_length);
+    through_LPF(sinedata_3500, h_M_16, data_3500, sinedata_length, 16);           //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
+    generateWav(fopen("sin3500Hz_M16.wav","wb"),FS,16,T,data_3500);              //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
+    result_txt(fopen("sin3500Hz_M16.txt","w+"),data_3500,sinedata_length);
 
-    // through_LPF(sinedata_3500, h_M_64, data_3500, sinedata_length, 64);     //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
-    // generateWav(fopen("sin3500Hz_M64.wav","wb"),FS,16,T,data_3500);           //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
-    // result_txt(fopen("sin3500Hz_M64.txt","w+"),data_3500,sinedata_length);
+    through_LPF(sinedata_3500, h_M_64, data_3500, sinedata_length, 64);     //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
+    generateWav(fopen("sin3500Hz_M64.wav","wb"),FS,16,T,data_3500);           //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
+    result_txt(fopen("sin3500Hz_M64.txt","w+"),data_3500,sinedata_length);
 
-    // through_LPF(sinedata_3500, h_M_256, data_3500, sinedata_length, 256);           //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
-    // generateWav(fopen("sin3500Hz_M256.wav","wb"),FS,16,T,data_3500);              //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
-    // result_txt(fopen("sin3500Hz_M256.txt","w+"),data_3500,sinedata_length);
+    through_LPF(sinedata_3500, h_M_256, data_3500, sinedata_length, 256);           //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
+    generateWav(fopen("sin3500Hz_M256.wav","wb"),FS,16,T,data_3500);              //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
+    result_txt(fopen("sin3500Hz_M256.txt","w+"),data_3500,sinedata_length);
 
-    // through_LPF(sinedata_3500, h_M_512, data_3500, sinedata_length, 512);           //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
-    // generateWav(fopen("sin3500Hz_M512.wav","wb"),FS,16,T,data_3500);              //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
-    // result_txt(fopen("sin3500Hz_M512.txt","w+"),data_3500,sinedata_length);
+    through_LPF(sinedata_3500, h_M_512, data_3500, sinedata_length, 512);           //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
+    generateWav(fopen("sin3500Hz_M512.wav","wb"),FS,16,T,data_3500);              //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
+    result_txt(fopen("sin3500Hz_M512.txt","w+"),data_3500,sinedata_length);
 
-    // through_LPF(sinedata_3500, h_M_1024, data_3500, sinedata_length, 1024);           //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
-    // generateWav(fopen("sin3500Hz_M1024.wav","wb"),FS,16,T,data_3500);              //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
-    // result_txt(fopen("sin3500Hz_M1024.txt","w+"),data_3500,sinedata_length);
+    through_LPF(sinedata_3500, h_M_1024, data_3500, sinedata_length, 1024);           //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
+    generateWav(fopen("sin3500Hz_M1024.wav","wb"),FS,16,T,data_3500);              //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
+    result_txt(fopen("sin3500Hz_M1024.txt","w+"),data_3500,sinedata_length);
 
-    // through_LPF(sinedata_3500, h_M_2048, data_3500, sinedata_length, 2048);     //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
-    // generateWav(fopen("sin3500Hz_M2048.wav","wb"),FS,16,T,data_3500);           //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
-    // result_txt(fopen("sin3500Hz_M2048.txt","w+"),data_3500,sinedata_length);
+    through_LPF(sinedata_3500, h_M_2048, data_3500, sinedata_length, 2048);     //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
+    generateWav(fopen("sin3500Hz_M2048.wav","wb"),FS,16,T,data_3500);           //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
+    result_txt(fopen("sin3500Hz_M2048.txt","w+"),data_3500,sinedata_length);
 
-    // /*5000Hz*/
+    /*5000Hz*/
 
-    // through_LPF(sinedata_5000, h_M_1, data_5000, sinedata_length, 1);           //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
-    // generateWav(fopen("sin5000Hz_M1.wav","wb"),FS,16,T,data_5000);              //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
-    // result_txt(fopen("sin5000Hz_M1.txt","w+"),data_5000,sinedata_length);
+    through_LPF(sinedata_5000, h_M_1, data_5000, sinedata_length, 1);           //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
+    generateWav(fopen("sin5000Hz_M1.wav","wb"),FS,16,T,data_5000);              //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
+    result_txt(fopen("sin5000Hz_M1.txt","w+"),data_5000,sinedata_length);
 
-    // through_LPF(sinedata_5000, h_M_4, data_5000, sinedata_length, 4);           //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
-    // generateWav(fopen("sin5000Hz_M4.wav","wb"),FS,16,T,data_5000);              //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
-    // result_txt(fopen("sin5000Hz_M4.txt","w+"),data_5000,sinedata_length);
+    through_LPF(sinedata_5000, h_M_4, data_5000, sinedata_length, 4);           //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
+    generateWav(fopen("sin5000Hz_M4.wav","wb"),FS,16,T,data_5000);              //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
+    result_txt(fopen("sin5000Hz_M4.txt","w+"),data_5000,sinedata_length);
 
-    // through_LPF(sinedata_5000, h_M_16, data_5000, sinedata_length, 16);         //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
-    // generateWav(fopen("sin5000Hz_M16.wav","wb"),FS,16,T,data_5000);             //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
-    // result_txt(fopen("sin5000Hz_M16.txt","w+"),data_5000,sinedata_length);
+    through_LPF(sinedata_5000, h_M_16, data_5000, sinedata_length, 16);         //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
+    generateWav(fopen("sin5000Hz_M16.wav","wb"),FS,16,T,data_5000);             //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
+    result_txt(fopen("sin5000Hz_M16.txt","w+"),data_5000,sinedata_length);
 
-    // through_LPF(sinedata_5000, h_M_64, data_5000, sinedata_length, 64);         //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
-    // generateWav(fopen("sin5000Hz_M64.wav","wb"),FS,16,T,data_5000);             //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
-    // result_txt(fopen("sin5000Hz_M64.txt","w+"),data_5000,sinedata_length);
+    through_LPF(sinedata_5000, h_M_64, data_5000, sinedata_length, 64);         //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
+    generateWav(fopen("sin5000Hz_M64.wav","wb"),FS,16,T,data_5000);             //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
+    result_txt(fopen("sin5000Hz_M64.txt","w+"),data_5000,sinedata_length);
 
-    // through_LPF(sinedata_5000, h_M_256, data_5000, sinedata_length, 256);           //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
-    // generateWav(fopen("sin5000Hz_M256.wav","wb"),FS,16,T,data_5000);              //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
-    // result_txt(fopen("sin5000Hz_M256.txt","w+"),data_5000,sinedata_length);
+    through_LPF(sinedata_5000, h_M_256, data_5000, sinedata_length, 256);           //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
+    generateWav(fopen("sin5000Hz_M256.wav","wb"),FS,16,T,data_5000);              //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
+    result_txt(fopen("sin5000Hz_M256.txt","w+"),data_5000,sinedata_length);
 
-    // through_LPF(sinedata_5000, h_M_512, data_5000, sinedata_length, 512);           //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
-    // generateWav(fopen("sin5000Hz_M512.wav","wb"),FS,16,T,data_5000);              //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
-    // result_txt(fopen("sin5000Hz_M512.txt","w+"),data_5000,sinedata_length);
+    through_LPF(sinedata_5000, h_M_512, data_5000, sinedata_length, 512);           //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
+    generateWav(fopen("sin5000Hz_M512.wav","wb"),FS,16,T,data_5000);              //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
+    result_txt(fopen("sin5000Hz_M512.txt","w+"),data_5000,sinedata_length);
 
-    // through_LPF(sinedata_5000, h_M_1024, data_5000, sinedata_length, 1024);         //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
-    // generateWav(fopen("sin5000Hz_M1024.wav","wb"),FS,16,T,data_5000);             //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
-    // result_txt(fopen("sin5000Hz_M1024.txt","w+"),data_5000,sinedata_length);
+    through_LPF(sinedata_5000, h_M_1024, data_5000, sinedata_length, 1024);         //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
+    generateWav(fopen("sin5000Hz_M1024.wav","wb"),FS,16,T,data_5000);             //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
+    result_txt(fopen("sin5000Hz_M1024.txt","w+"),data_5000,sinedata_length);
 
-    // through_LPF(sinedata_5000, h_M_2048, data_5000, sinedata_length, 2048);         //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
-    // generateWav(fopen("sin5000Hz_M2048.wav","wb"),FS,16,T,data_5000);             //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
-    // result_txt(fopen("sin5000Hz_M2048.txt","w+"),data_5000,sinedata_length); 
+    through_LPF(sinedata_5000, h_M_2048, data_5000, sinedata_length, 2048);         //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
+    generateWav(fopen("sin5000Hz_M2048.wav","wb"),FS,16,T,data_5000);             //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
+    result_txt(fopen("sin5000Hz_M2048.txt","w+"),data_5000,sinedata_length); 
 
 
 
@@ -111,14 +111,9 @@ int main(int argc, char **argv)
     result_txt(fopen("sin3500Hz.txt","w+"),sinedata_3500,sinedata_length);
     result_txt(fopen("sin5000Hz.txt","w+"),sinedata_5000,sinedata_length);
 
-    lowpass_coef_txt(fopen("h_M_1.txt","w+"), h_M_1 ,(2*1+1));
     lowpass_coef_txt(fopen("h_M_4.txt","w+"), h_M_4 ,(2*4+1));
     lowpass_coef_txt(fopen("h_M_16.txt","w+"), h_M_16 ,(2*16+1));
     lowpass_coef_txt(fopen("h_M_64.txt","w+"), h_M_64 ,(2*64+1));
-    lowpass_coef_txt(fopen("h_M_256.txt","w+"), h_M_256 ,(2*256+1));
-    lowpass_coef_txt(fopen("h_M_512.txt","w+"), h_M_512 ,(2*512+1));
-    lowpass_coef_txt(fopen("h_M_1024.txt","w+"), h_M_1024 ,(2*1024+1));
-    lowpass_coef_txt(fopen("h_M_2048.txt","w+"), h_M_2048 ,(2*2048+1));
 
 
 
