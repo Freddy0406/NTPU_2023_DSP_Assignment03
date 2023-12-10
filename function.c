@@ -26,7 +26,12 @@ void generateSin(int fs,int f,double T, short *sinedata){
     int i = 0;
 
     for(i = 0; i < sampTimes; i++){                                              //生成sin波
-        sinedata[i] = roundf(10000 * sin(2 * PI * f * (float)i / fs));
+        if((i<fs)||i>(sampTimes-fs)){           //前一秒和最後一秒為0                    
+            sinedata[i] = 0;
+        }
+        else{
+            sinedata[i] = roundf(10000 * sin(2 * PI * f * (float)i / fs));
+        }
     }
 }
 
@@ -90,6 +95,17 @@ void gen_lowpass(FILE *fp, int M, float *h)
 }
 
 
-
+void result_txt(FILE *fp, short *data, int length){
+    if( NULL == fp )printf( "open failure" );
+	else{
+        int i =0;
+        for(i=0;i<length;i++){
+            fprintf(fp,"%d ",data[i]);                                           //write into txt
+            fflush(fp);                                                             //clear cache
+        }
+    }
+    fclose(fp);
+    fflush(fp);
+}
 
 

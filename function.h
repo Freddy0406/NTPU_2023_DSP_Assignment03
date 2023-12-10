@@ -38,6 +38,7 @@ void gen_lowpass(FILE *fp, int M, float *h);
 void generateWav(FILE *fp,int fs,int m ,double T,short *data);
 void generateSin(int fs,int f,double T, short *sinedata);
 void through_LPF(short *sindata, float *h, short *data, int data_length, int M);
+void result_txt(FILE *fp, short *data,int length);
 
 
 
