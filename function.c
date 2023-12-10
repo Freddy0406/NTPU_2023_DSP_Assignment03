@@ -37,7 +37,7 @@ void generateSin(int fs,int f,double T, short *sinedata){
 
 
 /*Generate low-pass filter after DTFT*/
-void gen_lowpass(FILE *fp, int M, float *h)
+void gen_lowpass_DTFT(FILE *fp, int M, float *h)
 {
     if( NULL == fp ){
 
@@ -48,7 +48,7 @@ void gen_lowpass(FILE *fp, int M, float *h)
         int n = 0;
         int N = 4096;
         float result[N];
-    
+
         double *cos_array = (double*)malloc(sizeof(double)*N);
     	double *sin_array = (double*)malloc(sizeof(double)*N);	
         for(n=0;n<(2*M+1);n++) {
@@ -107,5 +107,21 @@ void result_txt(FILE *fp, short *data, int length){
     fclose(fp);
     fflush(fp);
 }
+
+
+void lowpass_coef_txt(FILE *fp, float *data, int length){
+    if( NULL == fp )printf( "open failure" );
+	else{
+        int i =0;
+        for(i=0;i<length;i++){
+            fprintf(fp,"%lf ",data[i]);                                           //write into txt
+            fflush(fp);                                                             //clear cache
+        }
+    }
+    fclose(fp);
+    fflush(fp);
+}
+
+
 
 

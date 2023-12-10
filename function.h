@@ -34,11 +34,12 @@ typedef struct				//定義複數結構,通過歐拉公式運算
 
 float hamming(int N, int n);
 float low_pass(int m, int n);
-void gen_lowpass(FILE *fp, int M, float *h);
+void gen_lowpass_DTFT(FILE *fp, int M, float *h);
 void generateWav(FILE *fp,int fs,int m ,double T,short *data);
 void generateSin(int fs,int f,double T, short *sinedata);
 void through_LPF(short *sindata, float *h, short *data, int data_length, int M);
 void result_txt(FILE *fp, short *data,int length);
+void lowpass_coef_txt(FILE *fp, float *data, int length);
 
 
 
