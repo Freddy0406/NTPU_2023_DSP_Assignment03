@@ -27,16 +27,17 @@ int main(int argc, char **argv)
     gen_lowpass_DTFT(fopen("M_2048_LPF.txt","w+"),2048,h_M_2048);
 
     /*Generate test wav*/
-    short *sinedata_3500 = (short*)malloc(sizeof(short)*sinedata_length);				//生成儲存指定sin波的動態陣列
-    short *sinedata_5000 = (short*)malloc(sizeof(short)*sinedata_length);				//生成儲存指定sin波的動態陣列
+    short *sinedata_3500 = (short*)malloc(sizeof(short)*sinedata_length);				//生成儲存3500Hz sin波的動態陣列
+    short *sinedata_5000 = (short*)malloc(sizeof(short)*sinedata_length);				//生成儲存5000Hz sin波的動態陣列
     generateSin(FS,3500,T,sinedata_3500);
     generateSin(FS,5000,T,sinedata_5000);
-
 
 
     short *data_3500 = (short*)malloc(sizeof(short)*sinedata_length);
     short *data_5000 = (short*)malloc(sizeof(short)*sinedata_length);
 
+
+    /*3500Hz*/
 
     through_LPF(sinedata_3500, h_M_1, data_3500, sinedata_length, 1);           //(原音檔,LPF種類,輸出檔案,檔案長度,LPF級數M)
     generateWav(fopen("sin3500Hz_M1.wav","wb"),FS,16,T,data_3500);              //(檔案名稱,取樣率,取樣位元深度,音檔時長(單位秒),輸出資料)
