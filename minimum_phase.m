@@ -8,9 +8,9 @@ sin3500Hz = load('sin3500Hz.txt');
 sin5000Hz = load('sin5000Hz.txt');
 sin3500Hz = sin3500Hz./10000;
 sin5000Hz = sin5000Hz./10000;
-M_4 = fliplr(load('h_M_4.txt'));
-M_16 = fliplr(load('h_M_16.txt'));
-M_64 = fliplr(load('h_M_64.txt'));
+M_4 = load('h_M_4.txt');
+M_16 = load('h_M_16.txt');
+M_64 = load('h_M_64.txt');
 
 sin1000Hz = zeros(1,length(sin3500Hz));
 
@@ -19,32 +19,49 @@ for i = 1:length(sin1000Hz)
 end
 
 %% Find roots(Zeros)
-zeros_M_4 = roots(M_4);
-zeros_M_16 = roots(M_16);
-zeros_M_64 = roots(M_64);
+M64_p = poly2sym(M_64);
+M16_p = poly2sym(M_16);
+M4_p = poly2sym(M_4);
+
+zeros_M_4 = root(M4_p);
+zeros_M_16 = root(M16_p);
+zeros_M_64 = root(M64_p);
+
+Rnumeric_M4 = vpa(zeros_M_4);
+Rnumeric_M16 = vpa(zeros_M_16);
+Rnumeric_M64 = vpa(zeros_M_64);
+
+
 
 %% conjugate reciprocal if abs(z)>1
-for i = 1:length(zeros_M_4)
-    if(abs(zeros_M_4(i))>1)
-        zeros_M_4(i) = 1/conj(zeros_M_4(i));
+for i = 1:length(Rnumeric_M4)
+    if(abs(Rnumeric_M4(i))>1)
+        Rnumeric_M4(i) = 1/conj(Rnumeric_M4(i));
     end
 end
 
-for i = 1:length(zeros_M_16)
-    if(abs(zeros_M_16(i))>1)
-        zeros_M_16(i) = 1/conj(zeros_M_16(i));
+for i = 1:length(Rnumeric_M16)
+    if(abs(Rnumeric_M16(i))>1)
+        Rnumeric_M16(i) = 1/conj(Rnumeric_M16(i));
     end
 end
 
-for i = 1:length(zeros_M_64)
-    if(abs(zeros_M_64(i))>1)
-        zeros_M_64(i) = 1/conj(zeros_M_64(i));
+for i = 1:length(Rnumeric_M64)
+    if(abs(Rnumeric_M64(i))>1)
+        Rnumeric_M64(i) = 1/conj(Rnumeric_M64(i));
     end
 end
 %%  Calculate minimum phase(MP)
-MP_M_4 = poly(zeros_M_4);
-MP_M_16 = poly(zeros_M_16);
-MP_M_64 = poly(zeros_M_64);
+syms x
+M4_p_after=(expand(prod(x-Rnumeric_M4)));
+M16_p_after=(expand(prod(x-Rnumeric_M16)));
+M64_p_after=(expand(prod(x-Rnumeric_M64)));
+
+
+
+MP_M_4 = fliplr(double(real(coeffs(M4_p_after))));
+MP_M_16 = fliplr(double(real(coeffs(M16_p_after))));
+MP_M_64 = fliplr(double(real(coeffs(M64_p_after))));
 
 
 [data_3500hz_M4] = through_new_LPF(sin3500Hz,MP_M_4);
