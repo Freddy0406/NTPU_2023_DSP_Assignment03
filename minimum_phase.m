@@ -81,6 +81,16 @@ data_5000hz_M4 = data_5000hz_M4./max(data_5000hz_M4);
 data_5000hz_M16 = data_5000hz_M16./max(data_5000hz_M16);
 data_5000hz_M64 = data_5000hz_M64./max(data_5000hz_M64);
 
+%% Generate wav
+
+audiowrite("sin3500Hz_MPM4.wav",data_3500hz_M4,fs);
+audiowrite("sin3500Hz_MPM16.wav",data_3500hz_M16,fs);
+audiowrite("sin3500Hz_MPM64.wav",data_3500hz_M64,fs);
+
+audiowrite("sin5000Hz_MPM4.wav",data_5000hz_M4,fs);
+audiowrite("sin5000Hz_MPM16.wav",data_5000hz_M16,fs);
+audiowrite("sin5000Hz_MPM64.wav",data_5000hz_M64,fs);
+
 
 sin3500Hz_M4 = load('sin3500Hz_M4.txt');
 sin3500Hz_M16 = load('sin3500Hz_M16.txt');
@@ -171,7 +181,6 @@ sgtitle('Observe transient state, f = 5000Hz, M = 4,16');
 
 figure(4);
 subplot(2,1,1)
-title('123');
 plot(sin5000Hz_M64);
 title('f = 5000Hz, M = 64');
 xlim([44100 44600]);
@@ -187,6 +196,71 @@ ylabel('Amplitude')
 sgtitle('Observe transient state, f = 5000Hz, M = 64');
 
 
+
+%% Plot Uni circle
+d_ang = 0.01;                           %angle解析度 (-pi到pi，每隔多少取一次值)
+ang = -pi-d_ang:d_ang:pi+d_ang;         %angle陣列
+xp = 1*cos(ang);
+yp = 1*sin(ang);
+
+zeros_M_4 = double(zeros_M_4);
+zeros_M_16 = double(zeros_M_16);
+zeros_M_64 = double(zeros_M_64);
+
+figure(5);
+subplot(2,1,1)
+plot(real(zeros_M_4),imag(zeros_M_4),"o",xp,yp,'b');
+title('Unit circle plot for the M4 linear phase filter');
+axis equal
+grid on
+xlabel("Re(z)")
+ylabel("Im(z)")
+
+subplot(2,1,2)
+plot(real(Rnumeric_M4),imag(Rnumeric_M4),"o",xp,yp,'b');
+title('Unit circle plot for the M4 minimum phase filter');
+axis equal
+grid on
+xlabel("Re(z)")
+ylabel("Im(z)")
+
+
+
+figure(6)
+subplot(2,1,1)
+plot(real(zeros_M_16),imag(zeros_M_16),"o",xp,yp,'b');
+title('Unit circle plot for the M16 linear phase filter');
+axis equal
+grid on
+xlabel("Re(z)")
+ylabel("Im(z)")
+
+subplot(2,1,2)
+plot(real(Rnumeric_M16),imag(Rnumeric_M16),"o",xp,yp,'b');
+title('Unit circle plot for the M16 minimum phase filter');
+axis equal
+grid on
+xlabel("Re(z)")
+ylabel("Im(z)")
+
+
+
+figure(7)
+subplot(2,1,1)
+plot(real(zeros_M_64),imag(zeros_M_64),"o",xp,yp,'b');
+title('Unit circle plot for the M64 linear phase filter');
+axis equal
+grid on
+xlabel("Re(z)")
+ylabel("Im(z)")
+
+subplot(2,1,2)
+plot(real(Rnumeric_M64),imag(Rnumeric_M64),"o",xp,yp,'b');
+title('Unit circle plot for the M64 minimum phase filter');
+axis equal
+grid on
+xlabel("Re(z)")
+ylabel("Im(z)")
 
 
 %% Function
